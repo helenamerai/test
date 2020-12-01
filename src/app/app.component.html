@@ -1,0 +1,39 @@
+<div class="main-container">
+  <div class="title">
+    Print Input to Zig-Zag Pattern
+  </div>
+  <div class="form-container">
+    <form id="form">
+      <div class="input-container">
+        <label for="str">Input:</label>
+        <input placeholder="Please enter string" name="str" [(ngModel)]="form.str">
+      </div>
+
+      <div class="input-container">
+        <label for="no">Rows:</label>
+        <input placeholder="Please enter number of rows" name="no" [(ngModel)]="form.no"
+          (keydown)="onNumberKeyDown($event)">
+      </div>
+
+      <div class="submit-container">
+        <input class="cancel" type="submit" value="CANCEL" (click)="onCancel()">
+        <input class="submit" type="submit" value="SUBMIT" (click)="onSubmit()">
+      </div>
+    </form>
+  </div>
+
+  <div class="result-container" *ngIf="openResult">
+    <div>Result:
+      <span class="result-str">{{res_str}}</span>
+    </div>
+    <div class="content">
+      <table>
+        <tr *ngFor="let row of result; let even = even; let odd = odd">
+          <td class="field" *ngFor="let field of row">
+            {{field}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
